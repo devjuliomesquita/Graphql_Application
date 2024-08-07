@@ -1,0 +1,56 @@
+scalar UUID
+scalar Url
+scalar Date
+
+type EventEntity {
+    id: UUID!
+    name: String!
+    description: String!
+    startDate: Date
+    endDate: Date
+    cfpStartDate: Date
+    cfpEndDate: Date
+    location: String
+    website: Url
+}
+
+type SessionEntity {
+    id: UUID!
+    title: String!
+    description: String!
+    level: LevelType!
+}
+
+type TagEntity {
+    id: UUID!
+    name: String!
+}
+
+type SpeakerEntity {
+    id: UUID!
+    name: String!
+    title: String!
+    company: String
+    gender: GenderType
+    country: String
+    email: String
+    phoneNumber: String
+    linkedin: String
+}
+
+enum LevelType {
+    BEGINNER, INTERMEDIATE, ADVANCED
+}
+
+enum GenderType {
+    MALE, FEMALE, NON_BINARY
+}
+
+type Query {
+    events: [EventEntity]
+    event(id: UUID!) : EventEntity
+    sessions: [SessionEntity]
+    session(id: UUID!) : SessionEntity
+    speakers: [SpeakerEntity]
+    speaker(id: UUID!) : SpeakerEntity
+}

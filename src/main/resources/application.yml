@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: graphql-application
+  datasource:
+    url: jdbc:h2:mem:application
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+#    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/flyway}
+#    username: ${DATASOURCE_USERNAME:flyway}
+#    password: ${DATASOURCE_PASSWORD:flyway}
+#    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#      jakarta: # Scrip para geração de migration
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: update
+#              create-target: src/main/resources/db/hibernate/db_create.sql
+#              drop-target: src/main/resources/db/hibernate/db_drop.sql
+#              update-target: src/main/resources/db/hibernate/db_update.sql
+#  flyway:
+#    baseline-on-migrate: true
+#    enabled: true
+#    baseline-description: "init"
+#    baseline-version: 0
+#    locations: classpath:db/migration
+#    user: ${spring.datasource.username}
+#    password: ${spring.datasource.password}
+  graphql:
+    graphiql:
+      enabled: true
